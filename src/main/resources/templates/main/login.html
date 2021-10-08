@@ -1,0 +1,45 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+    <title>Stock Market - Login</title>
+    <link th:rel="icon" th:href="@{/images/favicon.png}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link th:rel="stylesheet" th:href="@{/css/styles.min.css}"/>
+</head>
+<body>
+<header th:insert="fragments/header :: main"></header>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-10 col-lg-6 mx-auto">
+                <h1 class="display-5 fw-bold text-center mb-3">Log in</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <form th:method="POST" th:action="@{/login}">
+                            <div class="mb-2">
+                                <label class="form-label" for="username">Login</label>
+                                <input class="form-control" type="text" id="username" name="username" aria-describedby="username" required>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label" for="password">Password</label>
+                                <input class="form-control" type="password" id="password" name="password" aria-describedby="password" required>
+                            </div>
+                            <div class="form-text text-danger" th:if="${error != null}" th:text="${error}"></div>
+                            <div class="d-grid gap-1 mt-3">
+                                <button class="btn btn-primary" type="submit" role="button">Login</button>
+                            </div>
+                            <p class="text-muted text-center mt-2 mb-0">Not registered yet? <a href="signup">Sign up</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer th:insert="fragments/footer :: main"></footer>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/fontawesome.min.js}"></script>
+</body>
+</html>

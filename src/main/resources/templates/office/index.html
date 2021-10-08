@@ -1,0 +1,52 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+    <title>Stock Market - Portfolio</title>
+    <link th:rel="icon" th:href="@{/images/favicon.png}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link th:rel="stylesheet" th:href="@{/css/styles.min.css}"/>
+</head>
+<body>
+<header th:insert="fragments/header :: office"></header>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-10 mx-auto text-center">
+                <table class="table table-bordered table-striped" id="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Stock</th>
+                        <th scope="col">Business</th>
+                        <th scope="col">Count</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Sum</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="stock : ${stocks}">
+                        <td th:utext="${stock.getStock().toUpperCase()}"></td>
+                        <td th:utext="${dataService.getStock(stock.getStock()).getCompanyName()}"></td>
+                        <td th:utext="${stock.getCount()}"></td>
+                        <td th:utext="${dataService.getStock(stock.getStock()).getLatestPrice()}"></td>
+                        <td th:utext="${stock.getCount() * dataService.getStock(stock.getStock()).getLatestPrice()}"></td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td class="fw-bold">Balance</td>
+                        <td colspan="3"></td>
+                        <td th:utext="${balance}"></td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+<footer th:insert="fragments/footer :: office"></footer>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/fontawesome.min.js}"></script>
+</body>
+</html>

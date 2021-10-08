@@ -1,0 +1,1 @@
+body{width:100vw;min-height:100vh;display:flex;flex-direction:column}main{display:flex;flex:1 1 auto;align-items:center;justify-content:center}.navbar{border-bottom:1px solid #e5e9ef}.footer{border-top:1px solid #e5e9ef}.navbar .navbar-toggler{border-color:transparent!important}.navbar .navbar-toggler:focus{box-shadow:none!important}

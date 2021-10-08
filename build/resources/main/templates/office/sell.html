@@ -1,0 +1,46 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+    <title>Stock Market - Sell</title>
+    <link th:rel="icon" th:href="@{/images/favicon.png}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link th:rel="stylesheet" th:href="@{/css/styles.min.css}"/>
+</head>
+<body>
+<header th:insert="fragments/header :: office"></header>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-10 col-lg-6 mx-auto">
+                <h1 class="display-5 fw-bold text-center mb-3">Sell</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <form th:method="POST" th:action="@{/office/sell}">
+                            <div class="mb-3">
+                                <label class="form-label visually-hidden" for="stock">Stock</label>
+                                <input class="form-control" type="text" id="stock" name="stock" aria-describedby="stock" placeholder="Enter the stock symbol" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label visually-hidden" for="count">Count</label>
+                                <input class="form-control" type="number" id="count" name="count" aria-describedby="count" placeholder="Enter the stock count" required>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-grid d-block">
+                                    <button class="btn btn-primary" type="submit" role="button">Buy</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="mt-3 text-center" th:if="${result != null}" th:text="${result}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer th:insert="fragments/footer :: office"></footer>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/fontawesome.min.js}"></script>
+</body>
+</html>

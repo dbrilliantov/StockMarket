@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+    <title>Stock Market</title>
+    <link th:rel="icon" th:href="@{/images/favicon.png}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link th:rel="stylesheet" th:href="@{/css/styles.min.css}"/>
+</head>
+<body>
+<header th:insert="fragments/header :: main"></header>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-10 col-lg-6 mx-auto text-center">
+                <h1 class="display-3 fw-bold">Stock Market</h1>
+                <p class="lead fs-5">This is a platform that shows how the stock market works.</p>
+                <div class="d-grid gap-2">
+                    <a class="btn btn-outline-primary" href="login" role="button">Login</a>
+                    <a class="btn btn-primary" href="signup" role="button">Signup</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer th:insert="fragments/footer :: main"></footer>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/fontawesome.min.js}"></script>
+</body>
+</html>

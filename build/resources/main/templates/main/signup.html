@@ -1,0 +1,51 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+  <title>Stock Market - Signup</title>
+  <link th:rel="icon" th:href="@{/images/favicon.png}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+  <link th:rel="stylesheet" th:href="@{/css/styles.min.css}"/>
+</head>
+<body>
+<header th:insert="fragments/header :: main"></header>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-10 col-lg-6 mx-auto">
+        <h1 class="display-5 fw-bold text-center mb-3">Sign up</h1>
+        <div class="card">
+          <div class="card-body">
+            <form th:method="POST" th:action="@{/signup}" th:object="${account}">
+              <div class="mb-2">
+                <label class="form-label" for="username">Username</label>
+                <input class="form-control" type="text" th:field="*{username}" id="username" aria-describedby="username" required>
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+              </div>
+              <div class="mb-2">
+                <label class="form-label" for="password">Password</label>
+                <input class="form-control" type="password" th:field="*{password}" id="password" aria-describedby="password" required>
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+              </div>
+              <div class="mb-2">
+                <label class="form-label" for="confirm">Confirm password</label>
+                <input class="form-control" type="password" th:field="*{confirm}" id="confirm" aria-describedby="confirm" required>
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('confirm')}" th:errors="*{confirm}"></div>
+              </div>
+              <div class="d-grid gap-1 mt-3">
+                <button class="btn btn-primary" type="submit" role="button">Sign up</button>
+              </div>
+              <p class="text-muted text-center mt-2 mb-0">Already have an account? <a href="login">Log in</a></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer th:insert="fragments/footer :: main"></footer>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/fontawesome.min.js}"></script>
+</body>
+</html>
